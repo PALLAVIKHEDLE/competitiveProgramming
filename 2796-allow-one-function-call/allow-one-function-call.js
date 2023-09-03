@@ -3,7 +3,7 @@
  * @return {Function}
  */
 var once = function(fn) {
-    let usedOnce=false
+    let usedOnce=false//indicationg that fn has not yet been called 
     let result
     
     return function(...args){
@@ -12,7 +12,7 @@ var once = function(fn) {
            usedOnce=true
            return result  
         } 
-return undefined;
+return undefined;// when returned function is called subsequent time, it simply returns undefined
 
     }
 };
