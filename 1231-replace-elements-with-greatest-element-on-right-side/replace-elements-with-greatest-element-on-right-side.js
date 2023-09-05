@@ -8,11 +8,7 @@ var replaceElements = function(arr) {
 
    for(let i=arr.length-2; i>=0;i--){
        if(currentMax>arr[i]) arr[i]=currentMax
-       else{
-        //    let temp=currentMax
-        //    currentMax=arr[i]
-        [currentMax, arr[i]]=[arr[i],currentMax ]
-       }
+       else[currentMax, arr[i]]=[arr[i],currentMax] 
    }
    return arr
 };
