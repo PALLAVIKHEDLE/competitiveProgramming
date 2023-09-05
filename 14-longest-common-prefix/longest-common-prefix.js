@@ -14,20 +14,14 @@ var longestCommonPrefix = function(strs) {
             secondElement=strs[1]
         }
       
-    
         if(commonArray.length>0)commonArray=[]
-     for(let j=0;j<firstElement.length;j++){
-         if(firstElement[j]==secondElement[j]){
-             commonArray.push(firstElement[j])
-         }else break
-     }
+        for(let j=0;j<firstElement.length;j++){
+            if(firstElement[j]==secondElement[j]){
+                commonArray.push(firstElement[j])
+            }else break
+        }
     start++
-
     }
-      noSpecialChars=commonArray.join("");
-   
-            
-            
+    noSpecialChars=commonArray.join("");       
    return noSpecialChars
-
 };
