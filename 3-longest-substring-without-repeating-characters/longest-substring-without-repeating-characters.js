@@ -4,14 +4,17 @@
  */
 
 
+
 function resetMap(map,val){
     for(key in map){
-        if(map[key]<=val) delete map[key]
+        // console.log(map[key],val)
+        if(map[key]<=val)delete map[key]
     }
 }
 
 var lengthOfLongestSubstring = function(s) {
-    let map={}, currentWindowLength, maxLength=0
+     let map={}, currentWindowLength, maxLength=0
+     
     for(let i=0; i<s.length;i++){
         let val=map[s[i]]
         if(val==undefined){
@@ -25,4 +28,3 @@ var lengthOfLongestSubstring = function(s) {
     }
   return maxLength  
 };
-
