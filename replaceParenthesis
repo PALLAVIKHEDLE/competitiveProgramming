@@ -16,3 +16,43 @@
 # Replace both opening and closing braces with 0 if parenthesis are balanced
 # If parenthesis are not balance, replace '(' -> 1 and ')' -> -1.
 
+
+
+
+
+let str="((ab)"
+
+function replaceParenthesis(str){
+  let stack=[]
+  for(let i=0; i<str.length; i++){
+   let temp='',top// reinitialize 
+    if(str[i]==')'){
+       temp=')'
+      while(top!=='(' && stack.length>0){
+        top=stack.pop()
+        temp=top+temp//opposite order append 
+      }
+      
+     // just for the balanced replacement
+      if(temp.charAt(temp.length-1)==')' && temp.charAt(0)=='('){
+        temp=temp.replace('(','0')
+        temp=temp.replace(')','0')
+      }
+      for(let j=0; j<temp.length; j++){
+        stack.push(temp[j])//push all the pop element into the stack 
+      }
+    } 
+    else stack.push(str[i])
+  }
+
+  //now assign imbalance mapping, replace '(' -> 1 and ')' -> -1
+  for(let k=0;k<stack.length;k++){
+    if(stack[k]=='(') stack[k]='1'
+    else if(stack[k]==')')stack[k]='-1'
+  }
+  stack=stack.join('')
+  console.log('Finalstack',stack)
+  }
+
+replaceParenthesis(str)
+
