@@ -5,10 +5,13 @@
  */
 var findSubstring = function(s, words) {
     let map={}
+    //wordLength is the length of a single word.
+    //wordCount is the total number of words in the words array.
     let wordLength=words[0].length, wordCount=words.length
-
+    //total length of all words concatenated together.
     let window=wordLength*wordCount
 
+    //store the count of each word in the words array.
     for(let i=0; i<words.length; i++){
         let val=map[words[i]]
         if(val==undefined) map[words[i]]=1
