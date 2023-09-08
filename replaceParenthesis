@@ -1,0 +1,18 @@
+
+# You are given input string containing alphabetical chaterters and parenthesis. Convert the input string into following format.
+
+# "()" => "00"
+# ")(" => "-11"
+# "((ab)" => "10ab0"
+# "(a(b)c)" => "0a0b0c0"
+# "()a((((" => "00a1111"
+# "(a))))b(((" => "0a0-1-1-1b111"
+
+
+# (a(b)c)
+# Stack: [0a0b0c0]
+ 
+
+# Replace both opening and closing braces with 0 if parenthesis are balanced
+# If parenthesis are not balance, replace '(' -> 1 and ')' -> -1.
+
