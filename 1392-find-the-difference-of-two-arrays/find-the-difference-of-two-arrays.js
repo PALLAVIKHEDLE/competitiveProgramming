@@ -16,9 +16,7 @@ var findDifference = function(nums1, nums2) {
         for(let i=0; i<duplicates.length;i++)if(j==nums2.length-1) delete map1[duplicates[i]]     
     }
     for (key in map1)fArray.push(key)
-
     for (key in map2)sArray.push(key)
-// console.log('arrays',fArray,sArray)
 result.push(fArray,sArray)
 return result
 };
