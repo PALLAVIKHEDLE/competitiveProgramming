@@ -19,12 +19,7 @@ if(!head || !head.next) return head;
     }
     let middle=slow.next
     slow.next=null
-    // while(fast){
-    //     fast=fast.next.next
-    //     slow=slow.next
-    // }
-    // let middle=slow
-    // // slow.next=null
+   
     return merge(sortList(head), sortList(middle))
 };
 
