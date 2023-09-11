@@ -9,53 +9,30 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
-var sortList = function(head) {
-    if(!head)return null
-    let dummyNode= new ListNode(0,head)
-    let curr=head.next,prev=head
-    while(curr){
-        if(prev.val<=curr.val){
-            prev=curr
-            curr=curr.next
-        }else{
-            let temp=dummyNode
-            while(curr.val>temp.next.val){
-                temp=temp.next
-            }
-            prev.next=curr.next
-            curr.next=temp.next
-            temp.next=curr
-            curr=prev.next
-        }
+function sortList (head) {
+    //MERGE SORT
+if(!head || !head.next) return head;
+    let fast=slow=head
+    while(fast.next &&fast.next.next){
+        fast=fast.next.next
+        slow=slow.next
     }
-    return dummyNode.next
-
-//     if(!head)return null
-//     let prev=head, curr=head.next
-//     let dummyNode= new ListNode(0, head)
-//   //ListNode class with a value of 0 and its next pointing to the original head of the linked list.
-//     while(curr){
-//         //if it's already sorted, we move on
-//         if(curr.val>=prev.val){
-//             prev=curr
-//             curr=curr.next
-//         }else{
-//             //iterate over since the beginning until we find the place to add
-//             let temp=dummyNode
-//             // console.log('temp',temp)
-//             // console.log('next',temp.next.val, curr.val)
-//             while(curr.val>temp.next.val){
-//                 temp=temp.next
-//             }
-//             // console.log('remove',prev.next, curr.next, temp.next, curr)
-//             //remove the current 
-//             prev.next=curr.next
-//             //insert current between
-//             curr.next=temp.next
-//             temp.next=curr
-//             // things sorted out, let's move to the next pointer
-//             curr = prev.next;
-//         }
-//     }
-// return dummyNode.next
+    let middle=slow.next
+    slow.next=null
+    return merge(sortList(head), sortList(middle))
 };
+
+const merge=(first,second)=>{
+    let dummyNode=new ListNode(-1)
+    let tmp=dummyNode
+    while(first&&second){
+        tmp.next=(first.val<second.val)?first:second
+        tmp=tmp.next
+        if(first.val<second.val)first=first.next
+        else second=second.next
+    }
+
+    if(first)tmp.next=first
+    if(second)tmp.next=second
+    return dummyNode.next
+}
