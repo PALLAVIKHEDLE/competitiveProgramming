@@ -40,7 +40,7 @@ var findKthLargest = function(nums, k) {
             minHeap.dequeue()
             minHeap.enqueue(val)
         }
-       return top()  
+       // return top()  
     }
      function  top () {
         return minHeap.front()?.element || 0
