@@ -10,12 +10,14 @@
  * @param {TreeNode} root
  * @return {number}
  */
+ let count=0
 var goodNodes = function(root) {
-     let count = 0;
-    
-    function dfs(node, maxSoFar) {
+    count = 0;
+    dfs(root, root.val);
+    return count;
+}
+ function dfs(node, maxSoFar) {
         if (!node) return;
-        
         if (node.val >= maxSoFar) {
             count++;
             maxSoFar = node.val;
@@ -24,8 +26,3 @@ var goodNodes = function(root) {
         dfs(node.left, maxSoFar);
         dfs(node.right, maxSoFar);
     }
-    
-    dfs(root, root.val);
-    return count;
- 
-}
