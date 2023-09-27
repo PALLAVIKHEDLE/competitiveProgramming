@@ -12,7 +12,6 @@
  */
 var isCompleteTree = function(root) {
     let seenNull=false
-    if(!root)return null
     let queue=[root]
     while(queue.length){
        const result=[]
