@@ -41,7 +41,7 @@ var convertToTitle = function(columnNumber) {
         columnNumber=Math.floor(columnNumber/26)
         if(r==0){
             r=0;
-            columnNumber=columnNumber-1
+            columnNumber--
         }
         title= charMap[r]+title
     }
