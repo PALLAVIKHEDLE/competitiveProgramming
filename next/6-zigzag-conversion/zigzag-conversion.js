@@ -12,10 +12,9 @@ var convert = function(s, numRows) {
     for (let i = 0; i < numRows; i++) {
         for (let j = i; j < s.length; j += step) {
             result += s[j];
-            // Check if the current row is not the first or last row and if there is a corresponding character to be added from the second diagonal of the ZigZag pattern
+// Check the current row is not the first/last row and if there is a corresponding character to be added from the second diagonal of the ZigZag pattern
         if (i !== 0 && i !== numRows - 1 && (j + step - 2 * i) < s.length) result += s[j + step - 2 * i];
         }
     }
-
     return result;
 };
