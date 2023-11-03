@@ -13,10 +13,7 @@ var successfulPairs = function(spells, potions, success) {
 
         while(left<=right){
             let mid=Math.floor((left+right)/2)
-            if(s*potions[mid]>=success){
-                right=mid-1;
-                index=mid;        
-            }
+            if(s*potions[mid]>=success)right=mid-1,index=mid;         
             else left=mid+1
         }
         res.push(potions.length-left)
