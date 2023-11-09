@@ -12,14 +12,11 @@ var minSubArrayLen = function(target, nums) {
             console.log('index', sum, end, start)
             currentWindow=end-start+1
             min=Math.min(min,currentWindow)
-            console.log('currentWindow',currentWindow,min)
-
             sum-=nums[start]
             start++
         }
         end++
     }
     if(currentWindow==undefined)return 0
-
 return min
 };
