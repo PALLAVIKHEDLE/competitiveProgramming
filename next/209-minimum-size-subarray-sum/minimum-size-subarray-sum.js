@@ -3,24 +3,23 @@
  * @param {number[]} nums
  * @return {number}
  */
- function min(a, b){
-  if(a<b)return a;
-  return b;
-}
+
 var minSubArrayLen = function(target, nums) {
-  let minWindow=Number.MAX_SAFE_INTEGER
-  let sum=0, start=0, currentWindowLen
-  for(let i=0; i<nums.length;i++){
-      sum+=nums[i]
-    while(sum>=target){
-        currentWindowLen=i-start+1
-        minWindow=Math.min(minWindow,currentWindowLen)
-        sum=sum-nums[start]
-        start++
-        
+    let min=Number.MAX_SAFE_INTEGER, sum=0, start=0,end=0, currentWindow
+    while(end<nums.length){
+        sum+=nums[end]
+        while(sum>=target){
+            console.log('index', sum, end, start)
+            currentWindow=end-start+1
+            min=Math.min(min,currentWindow)
+            console.log('currentWindow',currentWindow,min)
+
+            sum-=nums[start]
+            start++
+        }
+        end++
     }
-  }
-      if(currentWindowLen==undefined)return 0    
-  
-  return minWindow
+    if(currentWindow==undefined)return 0
+
+return min
 };
