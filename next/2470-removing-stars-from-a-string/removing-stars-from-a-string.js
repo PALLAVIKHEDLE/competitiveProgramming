@@ -3,11 +3,10 @@
  * @return {string}
  */
 var removeStars = function(s) {
-    let stack=[]
+let stack=[]
    for(let i=0; i<s.length; i++){
-       if(s[i]!=='*') stack.push(s[i])
        if(s[i]=='*') stack.pop()
+       else stack.push(s[i])
    }
-   return stack.join('')
-   console.log('stack',stack)
+return stack.join('')
 };
