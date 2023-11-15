@@ -26,8 +26,8 @@ var deleteNode = function(root, key) {
              return root.right
          }
      }
-     if(key<root.val)root.left= deleteNode(root.left,key)
-     else root.right= deleteNode(root.right,key)
+     if(key<root.val)root.left= deleteNode(root.left,key)//look for our target node in the left subtree
+     else root.right= deleteNode(root.right,key)// look for our target node in the right subtree
 
 return root     
 };
