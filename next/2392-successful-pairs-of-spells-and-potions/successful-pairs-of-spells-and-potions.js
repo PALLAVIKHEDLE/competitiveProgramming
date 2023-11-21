@@ -5,7 +5,20 @@
  * @return {number[]}
  */
 var successfulPairs = function(spells, potions, success) {
-    potions.sort((a,b)=>a-b)
+// let product=1, i=0, count=0, finalResult=[]
+// while(i<spells.length){
+//     for(let j=0; j<potions.length; j++){
+//     product=spells[i]*potions[j]
+//     if(product>=success) count++
+//     }
+//     finalResult.push(count)
+//     i++
+//     count=0
+// }
+// return finalResult
+
+
+ potions.sort((a,b)=>a-b)
      let res=[];
     for(s of spells){
      let left=0, right=potions.length-1;
@@ -17,4 +30,5 @@ var successfulPairs = function(spells, potions, success) {
         res.push(potions.length-left)
     }   
 return res
+
 };
