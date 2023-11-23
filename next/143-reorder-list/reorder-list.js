@@ -17,14 +17,14 @@ var reorderList = function(head) {
       let temp=current.next
       targetNode=getSecondLastNode(current)
       if (current == targetNode|| targetNode==null) break          
-      if (targetNode) {
+    //   if (targetNode) {
             current.next=targetNode.next
             targetNode.next=null
                 if (current.next !== null) {
                     current.next.next=temp
                     current=current.next.next
                 }
-      }
+    //   }
   }
  return tempHead
 };
