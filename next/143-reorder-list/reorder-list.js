@@ -12,19 +12,17 @@
  */
 
 var reorderList = function(head) {
-  let current=head, tempHead=head,targetNode
+  let current=head, tempHead=head
   while(current){
       let temp=current.next
-      targetNode=getSecondLastNode(current)
-      if (current == targetNode|| targetNode==null) break          
-    //   if (targetNode) {
-            current.next=targetNode.next
-            targetNode.next=null
-                if (current.next !== null) {
-                    current.next.next=temp
-                    current=current.next.next
-                }
-    //   }
+      let targetNode=getSecondLastNode(current)
+      if (current == targetNode|| targetNode==null) break
+      current.next=targetNode.next
+      targetNode.next=null
+      if (current.next !== null) {
+          current.next.next=temp
+          current=current.next.next
+      }
   }
  return tempHead
 };
