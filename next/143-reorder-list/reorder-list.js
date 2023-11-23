@@ -16,9 +16,7 @@ var reorderList = function(head) {
   while(current){
       let temp=current.next
       targetNode=getSecondLastNode(current)
-      if (current == targetNode|| targetNode==null) {
-                break
-            }
+      if (current == targetNode|| targetNode==null) break          
       if (targetNode) {
             current.next=targetNode.next
             targetNode.next=null
@@ -28,7 +26,6 @@ var reorderList = function(head) {
                 }
       }
   }
-
  return tempHead
 };
 
