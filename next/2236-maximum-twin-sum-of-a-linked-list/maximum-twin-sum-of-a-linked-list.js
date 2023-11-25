@@ -22,19 +22,17 @@ var pairSum = function(head) {
 //    return max 
 
 let slow=fast=head, maxVal=0
-
-//find midpoint of listNode
-while(fast&& fast.next){
-    fast=fast.next.next
+while(fast && fast.next){
+    fast= fast.next.next
     slow=slow.next
 }
-    // reverse second half of listNode
-    let prev=null, nextNode=new ListNode()
-    while(slow){
-        nextNode=slow.next
-        slow.next=prev
-        prev=slow
-        slow=nextNode
+
+let prev=null, current=slow
+    while(current){
+        let temp=current.next
+        current.next=prev
+        prev=current
+        current=temp
     }
 
     //get max pair
