@@ -5,23 +5,18 @@
  * @return {number[]}
  */
 var findClosestElements = function(arr, k, x) {
-   let result = [];
-  let diffsWithIndices = [];
+ let result=[], diffsWithIndices=[];
+    for(let i=0; i<arr.length; i++){
+        let diff=Math.abs(x-arr[i])  
+        diffsWithIndices.push({diff,index:i})
+    }
+    diffsWithIndices.sort((a,b)=>a.diff-b.diff)// Sort by absolute differences
 
-  for (let i = 0; i < arr.length; i++) {
-    let diff = Math.abs(x - arr[i]);
-    diffsWithIndices.push({ diff, index: i });
-  }
-
-  // Sort by absolute differences
-  diffsWithIndices.sort((a, b) => a.diff - b.diff);
-
-  // Take the first k elements with the smallest absolute differences
-  for (let i = 0; i < k; i++) {
-    result.push(arr[diffsWithIndices[i].index]);
-  }
-
-  // Sort the result array to maintain the order
+      // Take the first k elements with the smallest absolute differences
+    for(let j=0; j<k; j++){
+        result.push(arr[diffsWithIndices[j].index])
+    }
+      // Sort the result array to maintain the order
   result.sort((a, b) => a - b);
   return result;
 }
