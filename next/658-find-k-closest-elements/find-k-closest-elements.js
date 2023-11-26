@@ -20,10 +20,10 @@ var findClosestElements = function(arr, k, x) {
 //   result.sort((a, b) => a - b);
 //   return result;
 
-  let end=arr.length-1,start=0
-    while(end-start>=k){
-        if(Math.abs(arr[start]-x)<=Math.abs(arr[end]-x)) end--
-        else start++
-    }
-    return arr.slice(start, end+1)
+let start=0, end=arr.length-1
+while(end-start>=k){
+if(Math.abs(arr[start]-x)<=Math.abs(arr[end]-x))end--
+else start++
+}
+return arr.slice(start, end+1)
 }
