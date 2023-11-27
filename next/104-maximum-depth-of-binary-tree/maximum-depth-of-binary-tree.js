@@ -12,10 +12,7 @@
  */
 var maxDepth = function(root) {
     if(!root) return 0
-    if(root){
         let count1= maxDepth(root.left)
         let count2= maxDepth(root.right)
         return Math.max(count1+1, count2+1)
-    }    
-
 };
