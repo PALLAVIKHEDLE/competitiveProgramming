@@ -36,3 +36,11 @@ var lengthOfLongestSubstring = function(s) {
 //     }
 //   return maxLength  
 };
+
+
+// function resetMap(map,val){
+//     for(key in map){
+//         // console.log(map[key],val)
+//         if(map[key]<=val)delete map[key]
+//     }
+// }
