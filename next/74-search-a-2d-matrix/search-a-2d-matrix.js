@@ -20,6 +20,9 @@ let m= matrix.length, n=matrix[0].length,left=0, right=m*n-1
 
 while(left<=right){
     let mid=Math.floor((left+right)/2)
+    //Matrix is n*m or m*n 
+    //Math.floor(mid / n) calculates the row, and mid % n calculates the column
+    //mid row & mid column and check target element 
     let mid_val = matrix[Math.floor(mid / n)][mid % n];
     if(mid_val==target) return true
     else if(mid_val>target) right=mid-1
