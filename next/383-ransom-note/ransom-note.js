@@ -17,9 +17,8 @@ var canConstruct = function(ransomNote, magazine) {
     }
 
     for (let key in map) {
-        if (map[key] > 0) {
-            return false;
-        }
+        if (map[key] > 0)return false;
+        
     }
 
     return true; 
