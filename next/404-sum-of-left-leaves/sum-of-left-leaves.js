@@ -13,10 +13,10 @@
 var sumOfLeftLeaves = function(root) {
     let sum=0
     if(!root)return 0
-    if (root.left && !root.left.left && !root.left.right) {
-        // If the left child is a leaf node, add its value to the sum
-        sum += root.left.val;
-    }
+    
+    // If the left child is a leaf node, add its value to the sum
+    if (root.left && !root.left.left && !root.left.right)sum += root.left.val;
+    
   sum += sumOfLeftLeaves(root.left);
   sum += sumOfLeftLeaves(root.right);
 
