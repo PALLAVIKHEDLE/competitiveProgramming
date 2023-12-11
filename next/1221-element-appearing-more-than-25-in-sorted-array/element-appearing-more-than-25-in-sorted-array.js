@@ -9,9 +9,8 @@ var findSpecialInteger = function(arr) {
         else map[count]=map[count]+1
         max=Math.max(max,map[count])
     }
-    console.log(max,'max')
     for(key in map){
      if(map[key]==max)return key
     }
-return -1
+
 };
