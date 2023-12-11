@@ -8,6 +8,7 @@ var findSpecialInteger = function(arr) {
         if(map[count]==undefined)map[count]=1
         else map[count]=map[count]+1
         max=Math.max(max,map[count])
+        
     }
 
     for(key in map)if(map[key]==max)return key
