@@ -11,16 +11,18 @@
  * @return {number}
  */
 var sumOfLeftLeaves = function(root) {
+    //recursion approach
 //     let sum=0
 //     if(!root)return 0
-    
 //     // If the left child is a leaf node, add its value to the sum
-//     if (root.left && !root.left.left && !root.left.right)sum += root.left.val;
-    
-//   sum += sumOfLeftLeaves(root.left);
-//   sum += sumOfLeftLeaves(root.right);
+//     if (root.left && !root.left.left && !root.left.right)sum += root.left.val;  
+//     sum += sumOfLeftLeaves(root.left);
+//     sum += sumOfLeftLeaves(root.right);
 
 //   return sum  
+
+
+  //BFS Approach
 let queue=[root], sum=0
 while(queue.length){
     let len=queue.length
