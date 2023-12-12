@@ -3,13 +3,16 @@
  * @return {number}
  */
 var maxProduct = function(nums) {
-    let maxproduct1=0,maxproduct2=0
-    for(let j=0; j<nums.length;j++){
-        if(nums[j]>maxproduct1){
-            maxproduct2=maxproduct1
-            maxproduct1=nums[j]
-        }else if(nums[j]>maxproduct2)maxproduct2=nums[j]
-    }
- return (maxproduct1 - 1) * (maxproduct2 - 1);
-};
+//     let maxproduct1=0,maxproduct2=0
+//     for(let j=0; j<nums.length;j++){
+//         if(nums[j]>maxproduct1){
+//             maxproduct2=maxproduct1
+//             maxproduct1=nums[j]
+//         }else if(nums[j]>maxproduct2)maxproduct2=nums[j]
+//     }
+//  return (maxproduct1 - 1) * (maxproduct2 - 1);
 
+    const n = nums.length;
+    nums.sort((a, b) => a - b);
+    return (nums[n - 2] - 1) * (nums[n - 1] - 1);
+};
