@@ -11,21 +11,23 @@
  * @return {ListNode}
  */
 var swapNodes = function(head, k) {
-   let fast=slow=temp=head;
-
+   let fast = slow = head, temp = null;
     // Move fast pointer till k nodes
-    for (let i = 1; i < k; i++){
-         fast = fast.next;
-         temp = temp.next;
-    }
+    for (let i = 1; i < k; i++) fast = fast.next;
+
+    // Store the node at position k in temp
+    temp = fast;
+
     // Move both pointers until fast reaches the end
-    while (temp.next) {
+    while (fast.next) {
+        fast = fast.next;
         slow = slow.next;
-        temp=temp.next
     }
 
-   // swap values
-  [fast.val, slow.val] = [slow.val, fast.val]
+    // Swap the value
+    let tempVal = temp.val;
+    temp.val = slow.val;
+    slow.val = tempVal;
 
-return head;  
+    return head;  
 };
