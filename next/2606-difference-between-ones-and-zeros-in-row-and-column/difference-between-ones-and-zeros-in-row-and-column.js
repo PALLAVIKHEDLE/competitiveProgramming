@@ -3,36 +3,34 @@
  * @return {number[][]}
  */
 var onesMinusZeros = function(grid) {
-    const m = grid.length;
-    const n = grid[0].length;
+    let rows=grid.length, col=grid[0].length
 
     // Initialize difference matrix with zeros
-    const diff = Array.from({ length: m }, () => Array(n).fill(0));
+    let  diff=Array.from({length:rows},()=>Array(col).fill(0))
 
-    // Calculate ones and zeros for each row and column
-    const onesRow = Array(m).fill(0);
-    const zerosRow = Array(m).fill(0);
-    const onesCol = Array(n).fill(0);
-    const zerosCol = Array(n).fill(0);
-
-    for (let i = 0; i < m; i++) {
-        for (let j = 0; j < n; j++) {
-            if (grid[i][j] === 1) {
-                onesRow[i]++;
-                onesCol[j]++;
+     //Calculate ones and zeros for each row and columm
+     let zeroCol=Array(col).fill(0)
+         zeroRow=Array(rows).fill(0)
+         onesRow=Array(rows).fill(0)
+         onesCol=Array(col).fill(0)
+         
+    for(let i=0;i<rows;i++){
+        for(let j=0; j<col;j++){
+             if (grid[i][j] == 0) {
+                zeroRow[i]++;  // Increment zeroRow for each zero in the row
+                zeroCol[j]++;  // Increment zeroCol for each zero in the column
             } else {
-                zerosRow[i]++;
-                zerosCol[j]++;
+                onesRow[i]++;  // Increment onesRow for each one in the row
+                onesCol[j]++;  // Increment onesCol for each one in the column
             }
         }
     }
 
     // Populate the difference matrix based on the formula
-    for (let i = 0; i < m; i++) {
-        for (let j = 0; j < n; j++) {
-            diff[i][j] = onesRow[i] + onesCol[j] - zerosRow[i] - zerosCol[j];
+    for(let i=0;i<rows;i++){
+        for(let j=0; j<col;j++){
+            diff[i][j]=onesRow[i] + onesCol[j] - zeroRow[i]- zeroCol[j]
         }
-    }
-
-    return diff;
+    }        
+return diff    
 };
