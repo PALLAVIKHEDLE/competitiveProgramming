@@ -25,9 +25,9 @@ var swapNodes = function(head, k) {
     }
 
     // Swap the value
-    let tempVal = temp.val;
-    temp.val = slow.val;
-    slow.val = tempVal;
-
+    // let tempVal = temp.val;
+    // temp.val = slow.val;
+    // slow.val = tempVal;
+    [temp.val,slow.val]=[slow.val,temp.val]
     return head;  
 };
