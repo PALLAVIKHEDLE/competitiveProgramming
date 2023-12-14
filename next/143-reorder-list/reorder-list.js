@@ -10,7 +10,7 @@
  * @return {void} Do not return anything, modify head in-place instead.
  */
 var reorderList = function(head) {
-   let current=head, tempHead=head
+   let current=tempHead=head
   while(current){
       let temp=current.next
       let targetNode=getSecondLastNode(current)
