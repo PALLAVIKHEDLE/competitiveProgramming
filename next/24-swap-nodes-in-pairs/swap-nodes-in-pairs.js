@@ -11,7 +11,6 @@
  */
 var swapPairs = function(head) {
      let dummyNode = new ListNode(0, head);
-     dummyNode.next = head;
     let current = dummyNode;
 
    // Iterate through the linked list while there are at least two more nodes
