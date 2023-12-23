@@ -1,30 +1,17 @@
-/**
- * @param {string} path
- * @return {boolean}
- */
 var isPathCrossing = function(path) {
-      let x = 0, y = 0;
-    let visited = new Set();
-    visited.add("0,0");
+    //visited keeps track of the current position with x and y coordinates, and map is used to store visited positions.
+    let visited = { x: 0, y: 0 }, map = { '0,0': true };
 
     for (let direction of path) {
-        if (direction === 'E') {
-            x++;
-        } else if (direction === 'W') {
-            x--;
-        } else if (direction === 'N') {
-            y++;
-        } else if (direction === 'S') {
-            y--;
-        }
+        if (direction === 'E') visited.x++;
+        else if (direction === 'W') visited.x--;
+        else if (direction === 'N') visited.y++;
+        else if (direction === 'S') visited.y--;
 
-        let currentPos = `${x},${y}`;
-        if (visited.has(currentPos)) {
-            return true;
-        }
+        let currentPosition = `${visited.x},${visited.y}`;
 
-        visited.add(currentPos);
+        if (map[currentPosition] !== undefined) return true;
+        else map[currentPosition] = true;
     }
-
-    return false;
+return false;
 };
