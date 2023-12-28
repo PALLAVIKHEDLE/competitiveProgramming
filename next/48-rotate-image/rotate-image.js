@@ -12,11 +12,9 @@ var rotate = function(matrix) {
 //     }
 // return result
 
- let n = matrix.length;
-
     // Transpose the matrix
-    for (let i = 0; i < n; i++) {
-        for (let j = i; j < n; j++) {
+    for (let i = 0; i < matrix.length; i++) {
+        for (let j = i; j < matrix.length; j++) {
             // Swap matrix[i][j] with matrix[j][i]
             let temp = matrix[i][j];
             matrix[i][j] = matrix[j][i];
@@ -25,7 +23,7 @@ var rotate = function(matrix) {
     }
 
     // Reverse each row
-    for (let i = 0; i < n; i++) {
+    for (let i = 0; i < matrix.length; i++) {
         matrix[i].reverse();
     }
 };
