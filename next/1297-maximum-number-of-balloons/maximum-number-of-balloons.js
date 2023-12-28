@@ -8,7 +8,7 @@ var maxNumberOfBalloons = function(text) {
     for (let count of text) {
         if (map[count]!==undefined)map[count]=map[count] + 1;
     }
-    // The letter 'l' appears twice in the word, so we need to divide its count by 2
+    // The letter 'l', 'o' appears twice in the word, so we need to divide its count by 2
     map['l'] = Math.floor(map['l'] / 2);
     map['o'] = Math.floor(map['o'] / 2);
 
