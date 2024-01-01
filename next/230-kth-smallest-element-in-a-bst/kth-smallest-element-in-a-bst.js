@@ -12,18 +12,14 @@
  * @return {number}
  */
 var kthSmallest = function(root, k) {
-//Inorder Traversal of BST Traversal the number in ascending order
-// Get the kth element in the inOrder traversal
-    
-let res=[]
-inOrder(root, res)
-return res[k-1]
-    
+    let res=[]
+    inOrder(root, res)
+    return res[k-1]
 };
 function inOrder(root, res){
-    if(!root) return null
-    inOrder(root.left, res)
+    if(!root)return null
+    inOrder(root.left,res)
     res.push(root.val)
-    inOrder(root.right,res)
-    
+    inOrder(root.right, res)
+
 }
