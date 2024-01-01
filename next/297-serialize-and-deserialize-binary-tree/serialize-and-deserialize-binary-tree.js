@@ -14,7 +14,11 @@
  */
 var serialize = function(root) {
     result=[]
-    function dfs(node){
+   
+    dfs(root)
+   return result.join(',')
+};
+ function dfs(node){
     if(!node)result.push('null')
     else{
         result.push(node?.val.toString())
@@ -22,10 +26,6 @@ var serialize = function(root) {
         dfs(node?.right)
     }
 }
-    dfs(root)
-   return result.join(',')
-};
-
 
 /**
  * Decodes your encoded data to tree.
