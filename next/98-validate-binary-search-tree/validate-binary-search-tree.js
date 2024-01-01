@@ -10,11 +10,12 @@
  * @param {TreeNode} root
  * @return {boolean}
  */
-var isValidBST = function(root) {
-    return isValidate(root, -Infinity, Infinity )
+var isValidBST = function(root, min = Number.MIN_SAFE_INTEGER, max = Number.MAX_SAFE_INTEGER) {
+    if (!root) return true;
+
+    if (root.val <= min || root.val >= max) return false;
+
+    // For the left subtree, update the max constraint to root.val
+    // For the right subtree, update the min constraint to root.val
+    return isValidBST(root.left, min, root.val) && isValidBST(root.right, root.val, max);
 };
-function isValidate(root, left, right){
-    if(!root) return true
-    if((left<root.val)&& (right>root.val)) return isValidate(root.left, left, root. val)&& isValidate(root.right, root.val, right)
-    else return false
-}
