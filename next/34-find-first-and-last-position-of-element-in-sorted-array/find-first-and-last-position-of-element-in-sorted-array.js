@@ -4,24 +4,20 @@
  * @return {number[]}
  */
 var searchRange = function(nums, target) {
-    let left=0, right=nums.length-1, indexVal, firstIndex,lastIndex
-    while(left<=right){
-        let mid= Math.floor((left+right)/2)
-        if(nums[mid]==target){
-            indexVal=mid
+    let result=[]
+    for(let i=0; i<nums.length;i++){
+        if(nums[i]==target){
+            result.push(i)
             break
         }
-        else if(nums[mid]>target)right=mid-1
-        else left=mid+1
     }
-
-    for(let i=indexVal;i>=0;i--)if(nums[i]==target)firstIndex=i
-    
-    for(let i=indexVal;i<=right;i++)if(nums[i]==target)lastIndex=i
-    
-    if (firstIndex === undefined && lastIndex === undefined) {
-        firstIndex = -1;
-        lastIndex = -1;
+    for(let i=nums.length; i>=0;i--){
+        if(nums[i]==target){
+            result.push(i)
+            break
+        }
     }
-return [firstIndex,lastIndex]
+    if(result.length)return result
+    else return[-1,-1]
+    // return result
 };
