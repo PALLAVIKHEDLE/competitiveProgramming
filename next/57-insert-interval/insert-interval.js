@@ -4,23 +4,28 @@
  * @return {number[][]}
  */
 var insert = function(intervals, newInterval) {
-    let index=0, {length}=intervals, j=0
-      //insert newInterval based on newInterval[0]
-    for(let i=0; i<intervals.length;i++){
-        if(intervals[i][0]>=newInterval[0])break      
-        index++
+   let result =[],i;
+
+    for (i = 0; i < intervals.length; i++) {
+        if (intervals[i][1] < newInterval[0]) result.push(intervals[i]);
+        else if (intervals[i][0] > newInterval[1])break;
+        else {
+            newInterval[0] = Math.min(intervals[i][0], newInterval[0]);
+            newInterval[1] = Math.max(intervals[i][1], newInterval[1]);
+        }
     }
-    intervals.splice(index,0,newInterval)//newInterval inserted 
-    console.log('intervals',intervals)
-    //[[1,3],[2,5],[6,9]] now need to handle overlapping intervals
-   while(j<intervals.length-1){
-       if(intervals[j][1]<intervals[j+1][0]){
-           j++
-           continue
-       }
-        //overlap
-        intervals[j][1]=Math.max(intervals[j][1],intervals[j+1][1])
-        intervals.splice(j+1,1)// remove[[1,5],[6,9]]
-   }
-    return intervals  
+
+    result.push(newInterval);
+
+    for (i; i < intervals.length; i++) {
+        result.push(intervals[i]);
+    }
+
+    return result;
 };
+ 
+
+
+
+
+  
