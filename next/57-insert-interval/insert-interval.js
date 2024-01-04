@@ -17,11 +17,9 @@ var insert = function(intervals, newInterval) {
 
     result.push(newInterval);
 
-    for (i; i < intervals.length; i++) {
-        result.push(intervals[i]);
-    }
-
-    return result;
+    for (i; i < intervals.length; i++)result.push(intervals[i]);
+    
+return result;
 };
  
 
