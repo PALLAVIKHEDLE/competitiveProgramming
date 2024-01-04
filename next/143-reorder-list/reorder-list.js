@@ -10,28 +10,27 @@
  * @return {void} Do not return anything, modify head in-place instead.
  */
 var reorderList = function(head) {
-   let current=tempHead=head
-  while(current){
-      let temp=current.next
-      let targetNode=getSecondLastNode(current)
-      if (current == targetNode|| targetNode==null) break
-      current.next=targetNode.next
-      targetNode.next=null
-      if (current.next !== null) {
-          current.next.next=temp
-          current=current.next.next
-      }
-  }
- return tempHead
-};
+ if(!head)return head
+ let current=tempHead=head
+ while(current){
+    let tmp=current.next
+    let targetNode=getSeondLastElement(current)
+    if(current==targetNode||targetNode==null)break
+    current.next=targetNode.next
+    targetNode.next=null
+    if(current.next!==null){
+        current.next.next=tmp
+        current=current.next.next
+    }
+ }
+return tempHead
+}
 
-
-const getSecondLastNode = (head) => {
-if(!head) return head
-let prev = null
-  while(head.next){
-      prev = head
-      head = head.next
-  }
- return prev
+function getSeondLastElement(head){
+    let prev=null, curr=head
+    while(curr.next){
+        prev=curr
+        curr=curr.next
+    }
+    return prev
 }
