@@ -4,9 +4,7 @@
  * @return {void} Do not return anything, modify nums in-place instead.
  */
 var rotate = function(nums, k) {
-    if(!nums)return
     k=k%nums.length
-    if(k==0)return
     const reverse=((start,end)=>{
         while(start<=end){
             [nums[end],nums[start]]=[nums[start],nums[end]]
