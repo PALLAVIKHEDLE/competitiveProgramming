@@ -14,7 +14,6 @@ var uniqueOccurrences = function(arr) {
     }
     
     let occurrencesMap = {};
-
     for (let key in map) {
         if (occurrencesMap[map[key]]) return false;
         else occurrencesMap[map[key]] = true;
