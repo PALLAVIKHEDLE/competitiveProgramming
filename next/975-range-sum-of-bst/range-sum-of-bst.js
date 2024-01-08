@@ -25,9 +25,6 @@ var rangeSumBST = function(root, low, high) {
     };
 
     inOrderTraversal(root);
-
-    
-    console.log('result', result)
     for(let i=0; i<result.length;i++){
         if(low<=result[i] && result[i]<=high)sum+=result[i]
     }
