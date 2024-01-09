@@ -3,6 +3,7 @@
  * @return {string}
  */
 var predictPartyVictory = function(senate) {
+    //Queue Implementation
     let votingQueue=new Queue()
     let dCount=0; //remaining "Dire" senators
     let rCount=0; //remaining "Radiant" senators
