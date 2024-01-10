@@ -11,29 +11,19 @@
  * @return {number}
  */
 var maxLevelSum = function(root) {
-    if (!root) return 0
+    if(!root) return 0
+    let level=0, queue=[root], res={level:1, sum:root.val}
 
-    let level = 0
-    let res = { level: 1, sum: root.val } 
-
-    const queue = [root]
-
-    while (queue.length) {
+    while(queue.length){
         level++
-        let queueLen = queue.length 
-        let newSum = 0 
-
-        while(queueLen--) {
-            const node = queue.shift()
-            newSum += node.val 
-            if (node.left) queue.push(node.left)
-            if (node.right) queue.push(node.right)
+        let newSum=0, len=queue.length
+        while(len--){
+            let node=queue.shift()
+            newSum+=node.val
+            if(node.right)queue.push(node.right)
+            if(node.left)queue.push(node.left)
         }
-
-        if (newSum > res.sum)res = { level, sum: newSum}
-        
-        // level++
+        if(newSum>res.sum)res={level,sum:newSum}
     }
-
-    return res.level
+   return res.level 
 };
