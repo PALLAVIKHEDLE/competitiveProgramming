@@ -4,8 +4,7 @@
  * @return {number}
  */
 var minSteps = function(s, t) {
-    let count=0
-    let map1={}, map2={}
+    let map1={}, map2={}, count=0
     for(let char of s){
         map1[char]==undefined?map1[char]=1:map1[char]++
     }
@@ -15,7 +14,8 @@ var minSteps = function(s, t) {
     }
 
      for (let key in map2) {
+         // there is no corresponding value (undefined), it defaults to 0.
         count += Math.max(0, map2[key] - (map1[key] || 0));
-    }
+     }
     return count
 };
