@@ -11,15 +11,15 @@
  */
 var oddEvenList = function(head) {
     if(!head) return head
-
     let odd=head, even=head.next
     while(odd.next && odd.next.next){
         let temp=odd.next
         odd.next=odd.next.next
         odd=odd.next
         temp.next=odd.next
-// [[odd.next],[odd.next.next]]=[[odd.next.next],[odd.next]]
+        // [[odd.next],[odd.next.next]]=[[odd.next.next],[odd.next]]
     }
-    odd.next=even
-    return head
+    odd.next=even//Set the last odd node's next pointer to the head of the even nodes
+
+return head    
 };
