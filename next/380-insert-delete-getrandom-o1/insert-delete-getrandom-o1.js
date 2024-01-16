@@ -34,7 +34,7 @@ RandomizedSet.prototype.remove = function(val) {
  * @return {number}
  */
 RandomizedSet.prototype.getRandom = function() {
-     return this.list[Math.floor(Math.random() * this.list.length)];//generate a random index and return the value at the random index
+    return this.list[Math.floor(Math.random()* this.list.length)]//generate a random index and return the value at the random index
 };
 
 
