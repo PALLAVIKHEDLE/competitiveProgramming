@@ -10,36 +10,15 @@
  * @return {number}
  */
 var pairSum = function(head) {
-//     let arr=[], max=0
-//     while(head){
-//         arr.push(head.val)
-//         head=head.next
-//     }
-//     for(let i=0; i<arr.length; i++){ 
-//         let sum= arr[i]+arr[arr.length-1-i]
-//         max=Math.max(max, sum)
-//     }
-//    return max 
-
-let slow=fast=head, maxVal=0
-while(fast && fast.next){
-    fast= fast.next.next
-    slow=slow.next
-}
-
-let prev=null, current=slow
-    while(current){
-        let temp=current.next
-        current.next=prev
-        prev=current
-        current=temp
-    }
-
-    //get max pair
-    while(prev){
-        maxVal=Math.max(maxVal, prev.val+head.val)
+    let maxSum=0, arr=[]
+    while(head){
+        arr.push(head.val)
         head=head.next
-        prev=prev.next
     }
-return maxVal;
+
+    for(let i=0; i<arr.length;i++){
+        let sum=arr[i]+arr[arr.length-1-i]
+        maxSum=Math.max(sum, maxSum)
+    }
+ return maxSum   
 };
