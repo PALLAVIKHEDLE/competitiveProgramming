@@ -7,16 +7,14 @@
  * @return {boolean}
  */
 var uniqueOccurrences = function(arr) {
-    let map = {};
-    for (let nums of arr) {
-        if (map[nums] === undefined) map[nums] = 1;
-        else map[nums]++;
+    let map={}
+    for(let val of arr){
+        map[val]==undefined?map[val]=1:map[val]++
     }
-    
-    let occurrencesMap = {};
-    for (let key in map) {
-        if (occurrencesMap[map[key]]) return false;
-        else occurrencesMap[map[key]] = true;
+    let occurrencesMap={}
+    for(key in map){
+       if(occurrencesMap[map[key]])return false
+       else occurrencesMap[map[key]]=true
     }
-return true;
+return true
 };
