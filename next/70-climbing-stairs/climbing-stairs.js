@@ -3,13 +3,9 @@
  * @return {number}
  */
 var climbStairs = function(n) {
-    if(n<2)return 1
-    let firstStep=secondStep=1, thirdStep=0
-    for(let i=2; i<=n;i++){
-        thirdStep=firstStep+secondStep
-        firstStep=secondStep
-        secondStep=thirdStep
+    let stairs= [1,2];
+    while(stairs.length<n){
+        stairs.push(stairs[stairs.length-1]+stairs[stairs.length-2])
     }
-    return thirdStep
-
+return stairs[n-1]
 };
