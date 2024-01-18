@@ -4,14 +4,15 @@
  * @return {number}
  */
 var longestOnes = function(nums, k) {
-  let start=count=0,maxOnes=Number.MIN_SAFE_INTEGER
-  for(let i=0; i<nums.length; i++){
-      if(nums[i]==0)count++
+  let start=end=count=0, maxOnes=Number.MIN_SAFE_INTEGER
+  while(start<nums.length){
+      if(nums[start]==0)count++
       while(count>k){
-          if(nums[start]==0)count--
-          start++  
+          if(nums[end]==0)count--
+          end++
       }
-    maxOnes=Math.max(maxOnes,i-start+1)
-  }  
- return maxOnes 
+        maxOnes=Math.max(maxOnes,start-end+1)
+   start++   
+  }
+  return maxOnes
 };
