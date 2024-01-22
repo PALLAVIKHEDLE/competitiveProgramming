@@ -11,6 +11,6 @@ var searchMatrix = function(matrix, target) {
         if(mid_val==target)return true
         else if(mid_val>target)right=mid-1
         else left=mid+1
-    }
+    }  
 return false    
 };
