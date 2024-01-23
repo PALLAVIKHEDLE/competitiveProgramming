@@ -11,7 +11,7 @@ var containsNearbyDuplicate = function(nums, k) {
            let diff=map[nums[i]]-i
 
             if(Math.abs(diff)<=k)return true
-            else map[nums[i]]=[i]
+            else map[nums[i]]=i
         }
     }
 return false
