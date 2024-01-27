@@ -12,11 +12,11 @@
  * @return {ListNode}
  */
 var getIntersectionNode = function(headA, headB) {
-    let curA = headA, curB = headB
-   if(!headA || !headB)return null
-    while (curA !== curB) {
-        curA = curA == null ? headB : curA.next;
-        curB = curB == null ? headA : curB.next;   
-    }
-return curA;
+  let currA=headA, currB=headB
+  if(!headA||!headB)return null
+  while(currA!==currB){
+      currA=currA==null?headB:currA.next
+      currB=currB==null?headA:currB.next
+  }
+return currA
 };
