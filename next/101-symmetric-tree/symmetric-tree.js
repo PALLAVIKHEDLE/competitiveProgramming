@@ -11,29 +11,23 @@
  * @return {boolean}
  */
 var isSymmetric = function(root) {
-   if(!root) return true
-   return isMirror(root.left, root.right)
-};
+    if(!root)return true//empty tree is considered symmetric
+   let queue=[root,root]
 
-function isMirror(left, right){
-    if(!left&&!right)return true // If both sub trees are empty
-    if(!left||!right)return false// If only one of the sub trees are empty
-    if(left.val!==right.val)return false// If the values dont match up
-
- // Check both subtrees but travelled in a mirrored/symmetric fashion (one goes left, other goes right)  and make sure they're both symmetric
-   return isMirror(left.left, right.right) && isMirror(left.right, right.left)
+   while(queue.length){
+       let length=queue.length
+       while(length--){
+           let node1=queue.shift()
+           let node2=queue.shift()
+           if(!node1&&!node2)continue
+             if (!node1 || !node2 || node1.val !== node2.val) {
+            // One of the nodes is null (but not both), or their values are different
+            // The tree is not symmetric
+            return false;
+             }
+          // Add the left and right children of the current nodes to the queue in a symmetric order
+        queue.push(node1.left, node2.right, node1.right, node2.left);
+       }
+   }
+return true
 }
-
-
-
-
-// function isMirror(left, right){
-//    if(!left && !right) return true// If both sub trees are empty
-//    if(!left|| !right) return false // If only one of the sub trees are empty
-//    if(left.val!==right.val) return false// If the values dont match up
-
-// // Check both subtrees but travelled in a mirrored/symmetric fashion (one goes left, other goes right)  and make sure they're both symmetric
-//    return isMirror(left.left, right.right) && isMirror(left.right, right.left)
-// }
-//  
-
