@@ -7,7 +7,7 @@ var countKeyChanges = function(s) {
     let count=0
     let lastKey=s[0].toLowerCase()// Initialize with the lowercase of the first key
 
-    for(let i=0; i<s.length;i++){
+    for(let i=1; i<s.length;i++){
         let char=s[i].toLowerCase()
         if(char!==lastKey){
             count++
