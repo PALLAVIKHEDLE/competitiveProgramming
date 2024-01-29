@@ -11,12 +11,18 @@
  * @return {ListNode}
  */
 var removeElements = function(head, val) {
-   while(head && head.val==val) head=head.next
-
-   let curr=head
-   while(curr && curr.next){
-       if(curr.next.val==val)curr.next=curr.next.next
-       else curr=curr.next
+    if(!head)return null
+   let prev=head, curr=head.next;
+   while(curr){
+       if(curr.val==val){
+            curr=curr.next
+            prev.next=curr
+       }else{
+           prev=curr
+           curr=curr.next
+       }
    }
-   return head
+   if(head.val==val) return head.next
+
+ return head  
 };
