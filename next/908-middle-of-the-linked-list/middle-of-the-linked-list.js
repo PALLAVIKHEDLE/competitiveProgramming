@@ -10,11 +10,10 @@
  * @return {ListNode}
  */
 var middleNode = function(head) {
- //Fast & Slow Pointer => Fast runner moves two steps forward while the slow one moves one steps only.
-     let fast=slow=head;
-     while(fast && fast.next){
-         fast=fast.next.next
-         slow=slow.next
-     }
-return slow
+    let slow=fast=head
+    while(fast && fast.next){
+        slow=slow.next
+        fast=fast.next.next
+    }
+return slow    
 };
