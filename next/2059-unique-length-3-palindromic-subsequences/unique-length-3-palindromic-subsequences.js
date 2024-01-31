@@ -3,13 +3,20 @@
  * @return {number}
  */
 var countPalindromicSubsequence = function(s) {
-    let count=0,// total count of unique palindrome
-        chars=new Set(s)// unique char in s
+let count = 0,map = {};
+    //palindromic subsequences being counted have a length of 3.(s.length-2)
+    for (let i = 0; i < s.length - 2; i++) {
+        if(!map[s[i]]) {
+            map[s[i]] = true;
+            const lastIndex = s.lastIndexOf(s[i]);
+            if(lastIndex === i) continue;
+            
+            let uniqueChars = {};
+            for(let j = i+1; j < lastIndex; j++)uniqueChars[s[j]] = true;
+            
+            count += Object.keys(uniqueChars).length;
+        }
+    }
 
-     for(let char of chars){
-         let first= s.indexOf(char),
-             last=s.lastIndexOf(char)
-             count+=new Set(s.slice(first+1,last)).size
-     }  
- return count     
+    return count;   
 };
