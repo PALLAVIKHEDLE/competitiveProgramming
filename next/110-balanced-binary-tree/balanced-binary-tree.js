@@ -11,10 +11,11 @@
  * @return {boolean}
  */
 var isBalanced = function(root) {
-   if(!root) return true
-       let heightL=isBalanced(root.left)
-        let heightR=isBalanced(root.right)
-        if(heightL==false||heightR==false) return false//left subtree or right subtree unbalanced
-        if(Math.abs(heightL-heightR)>1)return false
-        return Math.max(heightL, heightR)+1//we add 1(for the root
+    if(!root) return true
+    let heightL=isBalanced(root.left)
+    let heightR=isBalanced(root.right)
+
+    if(heightL==false || heightR==false)return false
+    if(Math.abs(heightL-heightR)>1) return false
+    return Math.max(heightL, heightR)+1
 };
