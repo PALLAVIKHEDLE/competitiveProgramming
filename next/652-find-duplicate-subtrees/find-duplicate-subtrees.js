@@ -18,7 +18,8 @@ var findDuplicateSubtrees = function(root) {
         let right=traverse(node.right)
 
 //It creates a unique key for the current subtree
-        let key=`${node.val}-${left}-${right}`;
+        // let key=`${node.val}-${left}-${right}`;
+        const key = "(" + left + node.val + right + ")"
 
         map[key]=(map[key]||0)+1
         if(map[key]==2)result.push(node)
