@@ -11,40 +11,37 @@
  * @return {ListNode}
  */
 var reverseKGroup = function(head, k) {
-    //dummy node
-    let dummy=new ListNode(0)
-    dummy.next=head //head of the input list
-    let prevGroupTail=dummy//pointer to dummy node
+    let dummyNode= new ListNode(0)
+    dummyNode.next=head//head of the input list
+    let prevGroupTail=dummyNode//Pointer to dummy node
     while(head){
-        let groupStart=head, groupEnd=getGroupEnd(head, k)// return the end node of thr current group
+        let groupStart=head, groupEnd=getGroupEnd(head,k)// return the end node of thr current group
         if(!groupEnd) break //if group is incomplete, break out of the loop
 
-        //reverse the current group and connect it to the previous group
+        //reverse the current group and connect to the previous one
         prevGroupTail.next=reverseList(groupStart, groupEnd.next)
 
-
-     // update the pointer to the end of the reversed group
+        //update the pointer to the end of the reversed group
         prevGroupTail=groupStart
         head=prevGroupTail.next
     }
-let newHead=dummy.next
-return newHead
-};
-function getGroupEnd(head, k){
-    while(head && k>1){
+return dummyNode.next
+}
+function getGroupEnd(head,k){
+    while(head&&k>1){
         head=head.next
         k--
     }
-  return head  
+ return head   
 }
 
-function reverseList(start, stop){
-    let prev=stop
+function reverseList(start,stop){
+    let temp=stop
     while(start!==stop){
         let next=start.next
-        start.next=prev//update the next pointer of the start node
-        prev=start
+        start.next=temp//update the next pointer of the start node
+        temp=start
         start=next
     }
-    return prev
+return temp
 }
