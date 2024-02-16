@@ -13,7 +13,6 @@ var findLeastNumOfUniqueInts = function(arr, k) {
     while(k>0){
         let count=nums[nums.length-1][1]
     console.log('count',count)
-
         if(k<count)break
         k-=count
         nums.pop()
