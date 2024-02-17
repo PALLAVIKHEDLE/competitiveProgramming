@@ -8,8 +8,7 @@ var once = function(fn) {
        if(!usedOnce){
            result=fn(...args)
            usedOnce=true
-return result
-
+        return result
        }
     }
 };
