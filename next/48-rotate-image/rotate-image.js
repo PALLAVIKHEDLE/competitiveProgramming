@@ -6,14 +6,10 @@ var rotate = function(matrix) {
     let n=matrix.length
     //Transpose the matrix
     for(let i=0; i<n;i++){
-        for(j=i;j<n;j++){
-            //swap matrix[i][j] to matirx[j][i]
-            let temp=matrix[i][j]
-            matrix[i][j]=matrix[j][i]
-            matrix[j][i]=temp
+        for(let j=i; j<matrix[0].length;j++){
+           [ matrix[i][j], matrix[j][i]]= [ matrix[j][i], matrix[i][j]]
         }
     }
-//Reverse Each Row
+        //Reverse Each Row
     for(let i=0; i<n;i++)matrix[i].reverse()
-    
 }
