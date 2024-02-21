@@ -16,7 +16,7 @@ var isPalindrome = function(head) {
         slow=slow.next
         fast=fast.next.next
     }
-    let reversedList =reversList(slow)
+    let reversedList =reversList(slow)//reverse the second half
 
     // Compare the original first half with the reversed second half
     return compareLists(head, reversedList);
