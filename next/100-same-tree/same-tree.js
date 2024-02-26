@@ -12,21 +12,7 @@
  * @return {boolean}
  */
 var isSameTree = function(p, q) {
-//Recursive approach    
-    // if (!p && !q) return true
-    // if(!p||!q||p.val !==q.val)return false
-    // return isSameTree(p.left, q.left)&&isSameTree(p.right, q.right)
-
-//BFS APPROACH
-    let queue=[[p,q]]
-    while(queue.length){
-        let [x,y]=queue.shift();
-        if(!x &&!y)continue //both leaves
-        if(!x||!y) return false
-        if(x.val==y.val){
-            queue.push([x.left, y.left])
-            queue.push([x.right, y.right])
-        }else return false
-    }
-return true 
+  if(!p && !q)return true  
+  if(!p||!q||p.val !==q.val)return false
+  return isSameTree(p.left, q.left)&&isSameTree(p.right, q.right)
 };
