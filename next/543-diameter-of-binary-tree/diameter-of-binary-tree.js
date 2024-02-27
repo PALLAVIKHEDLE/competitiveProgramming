@@ -19,12 +19,8 @@ var diameterOfBinaryTree = function(root) {
         let right=maxDepth(root.right)
         //update the global max variable with the maximum depth encountered so far
         max=Math.max(max, left+right)
-       return Math.max(left, right)+1
+        return Math.max(left, right)+1
     }
     maxDepth(root)
     return max
     };
-
-
-
-    
