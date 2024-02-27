@@ -11,17 +11,20 @@
  * @return {number}
  */
 var diameterOfBinaryTree = function(root) {
-   let max=0
-   function maxDepth(root){
-       if(!root)return 0// if the root is null
-       //Recursive calculate the depth of the left and right subtrees
-       let left=maxDepth(root.left)
-       let right= maxDepth(root.right)
-       //update the global max variable with the maximum depth encountered so far
-       max=Math.max(max,left+right)
-        // Return the maximum depth of the current subtree rooted at 'root'
+    let max=0
+    function maxDepth(root){
+        if(!root)return 0// if the root is null
+        //Recursive calculate the depth of the left and right subtrees
+        let left=maxDepth(root.left)
+        let right=maxDepth(root.right)
+        //update the global max variable with the maximum depth encountered so far
+        max=Math.max(max, left+right)
        return Math.max(left, right)+1
-   }
-   maxDepth(root)
-   return max
-};
+    }
+    maxDepth(root)
+    return max
+    };
+
+
+
+    
