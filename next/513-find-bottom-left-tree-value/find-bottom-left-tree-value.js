@@ -11,18 +11,16 @@
  * @return {number}
  */
 var findBottomLeftValue = function(root) {
-//BFS
-    let queue=[root],res=[]
+    let queue=[root], res=[]
     while(queue.length){
-        let len=queue.length
+        let {length}=queue
         res=[]
-        for(let i=0;i<len;i++){
+        while(length--){
             let node=queue.shift()
             res.push(node.val)
             if(node.left)queue.push(node.left)
             if(node.right)queue.push(node.right)
         }
     }
-
     return res[0]
-}
+};
