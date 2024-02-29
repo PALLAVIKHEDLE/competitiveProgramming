@@ -1,6 +1,6 @@
 class EventEmitter {
     constructor(){
-        this.events=new Map()//store event names and their corresponding callbacks
+        this.events={}
     }
     /**
      * @param {string} eventName
@@ -9,12 +9,13 @@ class EventEmitter {
      */
     subscribe(eventName, callback) {
         //Check if the event name already exists in the Map.
-        if(!this.events.has(eventName)){
+        if(!this.events[eventName]){
              //if not create a new entry in the map with an empty array as the initial value
-            this.events.set(eventName,[])
+            this.events[eventName]=[]
         } 
+    
         //Get the array of callbacks for the event name 
-        const subscribers=this.events.get(eventName)
+        const subscribers=this.events[eventName]
             // Add the callback to the subscribers array
         subscribers.push(callback);
         return {
@@ -35,7 +36,7 @@ class EventEmitter {
      */
     emit(eventName, args = []) {
         // Get the array of callbacks for the event name
-    const subscribers = this.events.get(eventName);
+    const subscribers = this.events[eventName]
 
     // If no callbacks are subscribed to the event, return an empty array
     if (!subscribers) return [];
@@ -53,7 +54,6 @@ class EventEmitter {
     return results;
     }
 }
-
 /**
  * const emitter = new EventEmitter();
  *
