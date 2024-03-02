@@ -4,7 +4,7 @@
  * @return {number}
  */
 var minOperations = function(nums, k) {
-  let result = 0;
+  let operation = 0;
     const numbersQueue = new MinPriorityQueue();
 
     for (const num of nums) {
@@ -16,11 +16,11 @@ var minOperations = function(nums, k) {
         x = numbersQueue.dequeue().element;
         if (x >= k) break;
         y = numbersQueue.dequeue().element;
-        ++result;
+        operation++;
         numbersQueue.enqueue(Math.min(x, y) * 2 + Math.max(x, y));
     }
 
-    return result;
+    return operation;
 //    let minOperation = 0;
 //     nums.sort((a, b) => a - b);
 //     while (nums.length >= 2 && nums[0] < k) {
