@@ -5,8 +5,7 @@
 var sortedSquares = function(nums) {
     let squareArray=[]
     for(let num of nums){
-        let val=num*num
-        squareArray.push(val)
+        squareArray.push(num*num)
     }
     return squareArray.sort((a,b)=>a-b)
 };
