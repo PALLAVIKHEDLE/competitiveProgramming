@@ -7,8 +7,8 @@ var minOperations = function(nums, k) {
   let result = 0;
     const numbersQueue = new MinPriorityQueue();
 
-    for (let i = 0; i < nums.length; ++i) {
-        numbersQueue.enqueue(nums[i]);
+    for (const num of nums) {
+        numbersQueue.enqueue(num);
     }
 
     let x, y;
