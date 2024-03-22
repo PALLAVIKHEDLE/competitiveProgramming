@@ -10,35 +10,35 @@
  * @return {boolean}
  */
 var isPalindrome = function(head) {
-    //Find the middle of the linked list using the two pointers technique
-    let slow=fast=head
-    while(fast && fast.next){
-        slow=slow.next
-        fast=fast.next.next
-    }
-    let reversedList =reversList(slow)//reverse the second half
+ //find the middle of the linked list using the two pointer technique
+ let fast=slow=head
+ while(fast && fast.next){
+     fast=fast.next.next
+     slow=slow.next
+ }
 
-    // Compare the original first half with the reversed second half
-    return compareLists(head, reversedList);
-};
-//reverse list 
-const reversList=(head)=>{
+ //revered the second half of the list 
+ let reversedList=reverseList(slow)
+ //compare the original first half with the reversed second half 
+ return compareList(head, reversedList)
+}
+//reverseList
+function reverseList(head){
     let prev=null
     while(head){
-        let temp=head.next
+        let tempVal=head.next
         head.next=prev
         prev=head
-        head=temp
+        head=tempVal
     }
  return prev   
 }
 //compare two linked list
-const compareLists = function (list1, list2){
-    while(list1 && list2){
-        if(list1.val!==list2.val) return false
-
-        list1=list1.next
-        list2=list2.next
-    }
- return true   
+function compareList(list1,list2){
+while(list1 && list2){
+    if(list1.val!==list2.val)return false
+    list1=list1.next
+    list2=list2.next
+}
+return true
 }
