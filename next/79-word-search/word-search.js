@@ -13,8 +13,7 @@ var exist = function(board, word) {
     return false
 };
 
-// Apply backtracking on every element to search the
-// required word
+// Apply backtracking on every element to search the required word
 function depthFirstSearch(row, col, word, grid) {
     if (word.length == 0) return true;
     // Check if the cell is not out of bound or particular
