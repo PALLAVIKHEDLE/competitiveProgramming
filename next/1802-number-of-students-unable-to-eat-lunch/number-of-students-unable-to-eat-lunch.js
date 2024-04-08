@@ -4,7 +4,7 @@
  * @return {number}
  */
 var countStudents = function(students, sandwiches) {
-    let count=0
+     let count=0
     // if count=students.length, means there's an infinite-loop
     while(students.length && count<students.length){
         if(students[0]==sandwiches[0]){
@@ -18,5 +18,5 @@ var countStudents = function(students, sandwiches) {
             students.push(students.shift())
         }
     }
-return students.length    
+return students.length  
 };
