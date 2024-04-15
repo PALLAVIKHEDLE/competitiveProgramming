@@ -1,0 +1,16 @@
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var findLatestTime = function(s) {
+ // Convert string to array for easier manipulation
+    s = s.split('');
+
+    if (s[0] === "?") s[0] = s[1] <= "1" || s[1] === "?" ? "1" : "0";
+    if (s[1] === "?") s[1] = s[0] === "0" ? "9" : "1";
+    if (s[3] === "?") s[3] = "5";
+    if (s[4] === "?") s[4] = "9";
+
+    // Format the resulting array back to string in "HH:MM" format
+    return s.join("");
+}  
