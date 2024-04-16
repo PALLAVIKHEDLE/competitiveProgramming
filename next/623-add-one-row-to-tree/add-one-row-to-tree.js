@@ -25,22 +25,16 @@ var addOneRow = function(root, val, depth) {
     let currentDepth = 1;
     
     // Traverse the tree until we reach the level just above the target depth
-    while (queue.length > 0 && currentDepth < depth - 1) {
+    while (queue.length && currentDepth < depth - 1) {
         let length = queue.length;
         
         // Process all nodes at the current level
-        for (let i = 0; i < length; i++) {
+        while (length--) {
             let node = queue.shift();
-            
-            // Add left child to queue if it exists
-            if (node.left !== null) {
-                queue.push(node.left);
-            }
-            
-            // Add right child to queue if it exists
-            if (node.right !== null) {
-                queue.push(node.right);
-            }
+        
+            // Add left & right child to queue if it exists
+            if (node.left !== null) queue.push(node.left);
+            if (node.right !== null) queue.push(node.right);    
         }
         
         // Move to the next level
@@ -49,7 +43,7 @@ var addOneRow = function(root, val, depth) {
     
     // Now currentDepth should be depth - 1
     // Insert new nodes at the target depth
-    while (queue.length > 0) {
+    while (queue.length ) {
         let node = queue.shift();
         
         // Create new nodes with value val and link them appropriately
