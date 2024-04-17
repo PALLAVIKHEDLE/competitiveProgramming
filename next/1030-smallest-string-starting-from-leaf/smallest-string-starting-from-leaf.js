@@ -11,27 +11,21 @@
  * @return {string}
  */
 var smallestFromLeaf = function(root) {
-     if (!root) return '';
+    let smallestString='';
+     if(!root)return '';
+     let queue=[[root, String.fromCharCode(97+root.val)]] //Start queue with root and its character
 
-    let queue = [[root, String.fromCharCode(97 + root.val)]]; // Start queue with root and its character
-    let smallestString = '';
-
-    while (queue.length) {
-        let [node, path] = queue.shift();
-
-        if (!node.left && !node.right) { // Leaf node found
-            // Construct the string from leaf to root
-            let currentString = path.split('').reverse().join('');
-            
-            // Compare with smallest found string
-            if (smallestString === '' || currentString < smallestString) smallestString = currentString;
+     while(queue.length){
+        let [node, path]=queue.shift();
+        if(!node.left && !node.right){ //leaf node found
+            //Construct the string from leaf to root
+            let currString=path.split('').reverse().join('');
+            //Compare with smallest found string
+            if(smallestString==''||currString<smallestString)smallestString=currString
         }
-
-        // Traverse to children nodes
-        if (node.left) queue.push([node.left, path + String.fromCharCode(97 + node.left.val)]);
-        if (node.right) queue.push([node.right, path + String.fromCharCode(97 + node.right.val)]);
-        
-    }
-
-    return smallestString;
+        //Traverse to child nodes
+        if(node.left)queue.push([node.left, path+String.fromCharCode(97+node.left.val)]);
+        if(node.right)queue.push([node.right, path+String.fromCharCode(97+node.right.val)]);
+     }
+  return smallestString
 };
