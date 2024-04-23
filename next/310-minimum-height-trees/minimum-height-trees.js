@@ -30,12 +30,12 @@ var findMinHeightTrees = function(n, edges) {
    // Process the graph until there are only 1 or 2 nodes left
     while(n>2){
      // Number of nodes to be processed in the current level of the BFS
-        let pepEle=queue.length-front
-        n-=pepEle
-        for(let i=0; i<pepEle;i++){
+        let popEle=queue.length-front
+        n-=popEle
+        for(let i=0; i<popEle;i++){
             let curr=queue[front++] // Dequeue the current node
             for(let currGraph of graph[curr]){
-                depth[currGraph]-- // Decrement the degree of the neighboring node
+              depth[currGraph]-- // Decrement the degree of the neighboring node
                 // If the degree becomes 1 after decrementing, add it to the queue
                 if(depth[currGraph]==1)queue.push(currGraph)
             }
