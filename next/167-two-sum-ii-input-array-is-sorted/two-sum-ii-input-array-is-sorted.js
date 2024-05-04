@@ -4,15 +4,10 @@
  * @return {number[]}
  */
 var twoSum = function(numbers, target) {
-    let start=0, end= numbers.length
-    //first logic
-    while(start<end){
-        let currentSum=numbers[start]+numbers[end]
-        if(currentSum==target) return [start+1, end+1]
-        if(currentSum<=target)start++
-        else end--
-    }
-
-    
-
+   let left=0, right=numbers.length-1;
+   while(left<=right){
+    if(numbers[left]+numbers[right]==target)return [left+1, right+1]
+    if(numbers[left]+numbers[right]>target)right--
+    else left++
+   }
 };
