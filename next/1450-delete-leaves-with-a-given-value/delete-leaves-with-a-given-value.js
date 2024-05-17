@@ -12,7 +12,7 @@
  * @return {TreeNode}
  */
 var removeLeafNodes = function(root, target) {
-  //Post order Traversal recursive
+     //Post order Traversal recursive
   root.left &&(root.left=removeLeafNodes(root.left,target))
   root.right &&(root.right=removeLeafNodes(root.right,target))
   return root.left ===root.right && root.val==target?null:root
