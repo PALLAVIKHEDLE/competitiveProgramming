@@ -7,9 +7,6 @@ var reverseString = function(s) {
    
     while(start<=end){
         [s[start],s[end]]=[s[end],s[start]]
-    //    let temp=s[end]
-    //     s[end]=s[start]
-    //     s[start]=temp
         start++
         end--
     }
