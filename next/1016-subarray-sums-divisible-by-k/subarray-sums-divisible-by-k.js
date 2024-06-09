@@ -4,23 +4,16 @@
  * @return {number}
  */
 var subarraysDivByK = function(nums, k) {
-    let map = { 0: 1 };
-    let rs = 0;
-    let ans = 0;
+     let map = {0:1},currentSum =count = 0;//, indicating there's one subarray with a sum of 0 (which is divisible by any k).
 
-    for (let num of nums) { // Add 'let' to declare num
-        rs += num;
-        let key = rs % k;
-
+    for (num of nums) {
+        currentSum += num;
+        let key = currentSum % k;
         if (key < 0) key += k; // Handle negative remainders
-
         if (key in map) {
-            ans += map[key];
+            count += map[key];
             map[key] += 1;
-        } else {
-            map[key] = 1;
-        }
+        } else map[key] = 1; 
     }
-
-    return ans;
+    return count;
 };
