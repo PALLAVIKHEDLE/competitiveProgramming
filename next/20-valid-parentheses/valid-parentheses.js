@@ -4,13 +4,12 @@
  */
 var isValid = function(s) {
     let openStack=[];
-    for(let i=0;i<s.length;i++){
-          //fetch last char push into stack
-      let lastChar=openStack[openStack.length-1]
-        if(s[i]=='('||s[i]=='{'||s[i]=='[')openStack.push(s[i])
-        else if((s[i]==')'&&lastChar=='(')||(s[i]=='}'&&lastChar=='{')||(s[i]==']'&&lastChar=='['))openStack.pop()
+    for(let i=0; i<s.length;i++){
+        let char=s[i], peekElement=openStack[openStack.length-1]
+        if(char=='('||char=='['|| char=='{')openStack.push(char)
+        else if(char==')' && peekElement=='(' || char=='}' && peekElement=='{' ||char==']' && peekElement=='[')openStack.pop();
         else return false
     }
-    if(openStack.length==0)return true
-    else return false
+     if(openStack.length==0)return true
+     else return false
 };
