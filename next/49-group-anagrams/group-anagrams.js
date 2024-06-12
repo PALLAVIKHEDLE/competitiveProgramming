@@ -3,7 +3,7 @@
  * @return {string[][]}
  */
 var groupAnagrams = function(strs) {
-  let map={}, onceLetter=[]
+  let map={};
   for(let i=0; i<strs.length; i++){
   let sortedString=strs[i].split('').sort().join('');
      if (!map[sortedString]) map[sortedString] = [];
