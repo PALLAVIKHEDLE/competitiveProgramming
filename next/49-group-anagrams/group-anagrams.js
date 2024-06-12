@@ -3,11 +3,11 @@
  * @return {string[][]}
  */
 var groupAnagrams = function(strs) {
-  let map={}
-  for(let str of strs){
-      let s=str.split('').sort().join('')
-      if(!map[s])map[s]=[]
-      map[s].push(str)
+  let map={}, onceLetter=[]
+  for(let i=0; i<strs.length; i++){
+  let sortedString=strs[i].split('').sort().join('');
+     if (!map[sortedString]) map[sortedString] = [];
+     map[sortedString].push(strs[i]);
   }
-  return Object.values(map)
+  return Object.values(map);
 }
