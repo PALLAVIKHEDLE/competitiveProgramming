@@ -12,7 +12,12 @@
  */
 var maxDepth = function(root) {
     if(!root) return 0
-    return Math.max(maxDepth(root.left),maxDepth(root.right))+1
+    let count1=maxDepth(root.left)
+    let count2= maxDepth(root.right)
+
+    return Math.max(count1, count2)+1
+
+    // return Math.max(maxDepth(root.left),maxDepth(root.right))+1
 };
 
 
