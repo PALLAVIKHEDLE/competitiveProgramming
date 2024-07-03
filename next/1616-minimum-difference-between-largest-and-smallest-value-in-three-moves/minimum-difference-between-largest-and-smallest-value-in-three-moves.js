@@ -7,7 +7,7 @@ var minDifference = function(nums) {
 
     nums.sort((a, b) => a - b);
     let ans = nums[nums.length - 1] - nums[0];
-    for (let i = 0; i <= 3; i++) {
+    for (let i = 0; i <4; i++) {
         ans = Math.min(ans, nums[nums.length - (3 - i) - 1] - nums[i]);
     }
     return ans;
