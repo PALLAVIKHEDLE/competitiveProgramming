@@ -13,4 +13,14 @@ var maxArea = function(height) {
         else left++
     }
    return area
+
+    // //Brute Force
+    // let area=0
+    // for(let i=0; i<height.length;i++){
+    //     for(let j=i+1; j<height.length;j++){
+    //         let temp=Math.min(height[i], height[j])*(j-i)
+    //         area=Math.max(temp,area)
+    //     }
+    // }
+    // return area
 };
