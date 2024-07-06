@@ -1,6 +1,6 @@
 
 var MyStack = function() {
-this.queue=[]
+    this.queue=[] 
 };
 
 /** 
@@ -8,7 +8,7 @@ this.queue=[]
  * @return {void}
  */
 MyStack.prototype.push = function(x) {
-    this.queue.push(x);
+    this.queue.push(x)
     for(let i=0; i<this.queue.length-1;i++){
         this.queue.push(this.queue.shift())
     }
@@ -32,7 +32,7 @@ MyStack.prototype.top = function() {
  * @return {boolean}
  */
 MyStack.prototype.empty = function() {
-    return this.queue.length === 0;
+    return this.queue.length===0
 };
 
 /** 
