@@ -32,9 +32,9 @@ MyQueue.prototype.peek = function() {
  * @return {boolean}
  */
 MyQueue.prototype.empty = function() {
-   if(!this.stack.length)return true
-   else return false
-//    return this.stack.length === 0;
+//    if(!this.stack.length)return true
+//    else return false
+   return this.stack.length === 0;
 };
 
 /** 
