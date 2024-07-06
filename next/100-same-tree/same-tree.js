@@ -12,7 +12,29 @@
  * @return {boolean}
  */
 var isSameTree = function(p, q) {
-if(!p && !q)return true
-if(!p ||!q ||p.val!==q.val)return false
-return isSameTree(p.left,q.left) && isSameTree(p.right, q.right)
+    // recursive approach
+    if(!p && !q)return true
+    if(!p || !q ||p.val!==q.val)return false
+    return isSameTree(p.left, q.left) && isSameTree(p.right, q.right)
 };
+
+
+
+
+ // if (!p && !q) return true
+    // if(!p||!q||p.val !==q.val)return false
+    // return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
+
+  //Non-recursive Approach
+//     let queue=[[p,q]]
+//     while(queue.length){
+//         let [x,y]=queue.shift()
+//         if (x==null && y==null) continue; //both leaves
+//         if(!x||!y)return false
+//         if(x.val==y.val){
+//             queue.push([x.left, y.left])
+//             queue.push([x.right, y.right])
+//         }else return false
+//     }
+
+// return true
