@@ -11,43 +11,32 @@
  * @return {ListNode}
  */
 var rotateRight = function(head, k) {
-    //1. count total no of nodes 
-    if(!head) return head
-    let count=0, curr=head
-    while(curr!==null){
-        count++
-        curr=curr.next
+  if (!head || k === 0) return head; // Edge case: empty list or no rotation needed
+    
+    let length = 1;
+    let tail = head;
+    
+    // Calculate the length of the list and find the tail node
+    while (tail.next !== null) {
+        length++;
+        tail = tail.next;
     }
-    //2. Number of rotations are now restricted within the limit
-    k=k%count
-    let prev=head;
-    curr=head
-
-    //3. Moving one pointer k positions ahead
-    while(k--){
-        curr=curr.next
+    
+    // Adjust k to be within the range of list length
+    k = k % length;
+    if (k === 0) return head; // No need to rotate if k is 0
+    
+    // Find the new tail node and break the list at the appropriate position
+    let newTail = head;
+    for (let i = 0; i < length - k - 1; i++) {
+        newTail = newTail.next;
     }
-    //4. Now since our ptr is k steps ahead then it will tell us the kth position from end
-// i.e we iterate until ptr.next !==null and we move our prev pointer. Once ptr.next===null
-// i.e ptr reaches the last node, out prev pointer will be exactly at the kth position from end
-// Here kth position from end is nothing but the number of k rotations
-	while (curr.next) {
-		prev = prev.next;
-		curr = curr.next;
-	}
-
-//5,Now simply break the list after prev node. Last node i.e ptr will now point to head
-//i.e ptr.next=head, next node of prev becomes our new head and finally prev becomes our 
-//last node so prev.next=null
-// Simply modifying the head and last node
-	curr.next = head;
-	head = prev.next;
-	prev.next = null;
-	return head;
-
+    
+    let newHead = newTail.next;
+    newTail.next = null; // Break the list at the newTail
+    
+    // Connect the original tail to the original head to form a cycle
+    tail.next = head;
+    
+    return newHead;
 };
-
-
-
-
-
