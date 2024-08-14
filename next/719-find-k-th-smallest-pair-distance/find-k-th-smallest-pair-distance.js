@@ -10,13 +10,9 @@ var smallestDistancePair = function(nums, k) {
 
     while (low < high) {
         let mid = Math.floor((low + high) / 2);
-        if (countPairs(nums, mid) < k) {
-            low = mid + 1;
-        } else {
-            high = mid;
-        }
+        if (countPairs(nums, mid) < k) low = mid + 1;
+        else high = mid;
     }
-
     return low;
 };
 
