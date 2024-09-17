@@ -15,9 +15,7 @@ var uncommonFromSentences = function(s1, s2) {
     // Find the uncommon words (those that appear only once)
     let result = [];
     for (let word in wordCount) {
-        if (wordCount[word] === 1) {
-            result.push(word);
-        }
+        if (wordCount[word] === 1) result.push(word);
     }
 
     return result;
