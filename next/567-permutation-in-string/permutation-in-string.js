@@ -18,7 +18,6 @@ var checkInclusion = function(s1, s2) {
             if(map[s2[start]]>=0)length++
             map[s2[start]]++
             start++
-
         }
     }
     return false
