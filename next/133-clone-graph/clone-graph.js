@@ -11,18 +11,16 @@
  * @return {Node}
  */
 var cloneGraph = function(node) {
-     if (!node) return node;
+    if(!node) return node;
+    const map ={};
 
-    const map = {}; // map is the original node reference to our node
-
-    const clone = root => {
-        if (map[root.val] === undefined) {
-            map[root.val] = new Node(root.val);
-            map[root.val].neighbors = root.neighbors.map(clone);
+    const dfs=(root)=>{
+        if(map[root.val]==undefined){
+            map[root.val]=new Node(root.val);
+            map[root.val].neighbors=root.neighbors.map(dfs) 
         }
-        return map[root.val];
-    };
+        return map[root.val]
 
-    return clone(node);
+    }
+    return dfs(node)
 };
-
