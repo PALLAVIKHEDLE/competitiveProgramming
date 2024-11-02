@@ -11,23 +11,24 @@
  * @return {number}
  */
 var maxDepth = function(root) {
-  if(!root) return 0
+//DFS
+//   if(!root) return 0
+//   let count1=maxDepth(root.left)
+//   let count2=maxDepth(root.right)
+//   return Math.max(count1, count2)+1
 
-  let count1=maxDepth(root.left)
-  let count2=maxDepth(root.right)
-
-  return Math.max(count1, count2)+1
-};
-
-
-
-
-
-//  if(!root) return 0
-    
-//     let count1=maxDepth(root.left)
-//     let count2= maxDepth(root.right)
-
-//     return Math.max(count1, count2)+1
-
-//     // return Math.max(maxDepth(root.left),maxDepth(root.right))+1
+  //BFS
+    if(!root) return 0;
+    let queue=[root]
+    let level=0
+    while(queue.length){
+        let length=queue.length
+        level++
+        while(length--){
+            let node=queue.shift()
+            if(node.left)queue.push(node.left)
+            if(node.right)queue.push(node.right)
+        }
+    }
+return level
+}
