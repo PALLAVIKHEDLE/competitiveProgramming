@@ -9,9 +9,7 @@ var rotateString = function(s, goal) {
     for(let i=0;i<sArr.length; i++){
         // Rotate sArr
         let rotated =sArr.slice(i).concat(sArr.slice(0,i));
-        console.log(rotated)
         if(rotated.join('')===goal)return true
-
     }
     return false
 };
