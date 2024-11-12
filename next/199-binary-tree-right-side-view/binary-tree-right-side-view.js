@@ -19,7 +19,7 @@ var rightSideView = function(root) {
             let node=queue.shift()
             if(node.left)queue.push(node.left)
             if(node.right)queue.push(node.right)
-            if (len === 0)result.push(node.val);     
+            if (len === 0)result.push(node.val); // last node of the level    
         }
     }
 return result   
