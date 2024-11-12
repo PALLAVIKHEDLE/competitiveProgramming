@@ -26,11 +26,8 @@ var maximumBeauty = function(items, queries) {
         let left = 0, right = prices.length;
         while (left < right) {
             const mid = Math.floor((left + right) / 2);
-            if (prices[mid] <= query) {
-                left = mid + 1;
-            } else {
-                right = mid;
-            }
+            if (prices[mid] <= query) left = mid + 1;
+            else right = mid;
         }
         return maxBeauties[left];
     });
