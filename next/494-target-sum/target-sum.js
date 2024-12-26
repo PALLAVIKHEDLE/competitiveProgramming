@@ -4,25 +4,35 @@
  * @return {number}
  */
 var findTargetSumWays = function(nums, target) {
-//    let i=0, count=0, sum=0, currentSum=0;
-//    while(i<nums.length){
-//        for(let j=1; j<nums.length;j++){
-//            console.log(nums[i],  nums[j])
-//            currentSum += (-nums[i] + nums[j]);
-//        }
-//        if(currentSum==target)count++
-//        i++
-//    }
-// return count
-let count=0
-const dp=(i,sum)=>{
-    if(i==nums.length){
-        if(sum==target)count++
-        return;
+    const computeSums = (nums, start, end) => {
+        const sums = [0];
+        for (let i = start; i < end; i++) {
+            const num = nums[i];
+            const n = sums.length;
+            for (let j = 0; j < n; j++) {
+                sums.push(sums[j] + num);
+                sums[j] -= num;
+            }
+        }
+        return sums;
+    };
+
+    const n = nums.length, mid = Math.floor(n / 2);
+    const sums1 = computeSums(nums, 0, mid);
+    const sums2 = computeSums(nums, mid, n);
+    const countMap = new Map();
+
+    for (const sum of sums2) {
+        countMap.set(sum, (countMap.get(sum) || 0) + 1);
     }
-    dp(i+1, sum+nums[i])
-    dp(i+1, sum-nums[i])
-}
-dp(0,0)
-return count
+
+    let total = 0;
+    for (const sum of sums1) {
+        const complement = target - sum;
+        if (countMap.has(complement)) {
+            total += countMap.get(complement);
+        }
+    }
+
+    return total;
 };
