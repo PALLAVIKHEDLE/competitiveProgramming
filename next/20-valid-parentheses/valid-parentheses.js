@@ -6,7 +6,6 @@ var isValid = function(s) {
     let stack=[]
     for(let i=0; i<s.length; i++){
         let lastEle=stack[stack.length-1]
-        console.log(s[i])
         if(s[i]=='('||s[i]=='['||s[i]=='{')stack.push(s[i])
         else if(s[i]==')'&& lastEle=='('||s[i]==']'&&lastEle=='['||s[i]=='}'&&lastEle=='{')stack.pop()
         else return false
